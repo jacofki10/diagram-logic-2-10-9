@@ -84,10 +84,4 @@ for (const button of buttons) {
         });
 }
 
-// IINSERT DATA IN RESULT.HTML
-export const setResult = type => {
-        localStorage.setItem('dig', type + 1);
-        window.location.href = 'result.html';
-};
-
 init();

@@ -1,11 +1,16 @@
+import { scoreData, setupQuestion } from './app';
+
+// IINSERT DATA IN RESULT.HTML
+const setResult = type => {
+        sessionStorage.setItem('dig', type + 1);
+        window.location.href = 'result.html';
+};
+
 // GET THE RESULT AND LINK TO HIS PATERN//
-
-import { scoreData, setupQuestion, setResult } from './app';
-
 export const nextQuestion = currentNo => {
         if (currentNo === 10) {
                 let scoreLevel = '';
-                for (const type in scoreData) {
+                Object.keys(scoreData).forEach(type => {
                         if (type === 'CP') {
                                 scoreLevel += scoreData[type] + 1;
                                 console.log(scoreLevel, type);
@@ -22,8 +27,8 @@ export const nextQuestion = currentNo => {
                                 scoreLevel += scoreData[type] + 1;
                                 console.log(scoreLevel, type);
                         }
-                }
-                localStorage.setItem('digDetail', scoreLevel);
+                });
+                sessionStorage.setItem('digDetail', scoreLevel);
                 console.log(scoreLevel);
                 debugger;
                 switch (scoreLevel) {
