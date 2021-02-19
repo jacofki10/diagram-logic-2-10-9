@@ -67,7 +67,7 @@ module.exports = merge(common, {
         module: {
                 rules: [
                         {
-                                test: /\.js$/,
+                                test: /\.m?js$/,
                                 exclude: /(node_modules|bower_components)/,
                                 use: {
                                         loader: 'babel-loader',

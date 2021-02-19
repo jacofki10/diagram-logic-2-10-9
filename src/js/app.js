@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import { questions } from './questions';
 import { nextQuestion } from './redirect';
 import '../css/style.scss';
@@ -41,8 +42,9 @@ export const setupQuestion = no => {
 };
 
 // INIT QUIZ //
-const init = _ => {
-        document.querySelectorAll('.diagramData').forEach((element, index) => {
+const init = () => {
+        const myNodeList = document.querySelectorAll('.diagramData');
+        [].forEach.call(myNodeList, function (element, index) {
                 const Type = element.querySelector('.type').innerHTML;
                 const Question = element.querySelector('.question').innerHTML;
                 List[index + 1] = {
@@ -50,6 +52,7 @@ const init = _ => {
                         Question,
                 };
         });
+
         setupQuestion(1);
 };
 

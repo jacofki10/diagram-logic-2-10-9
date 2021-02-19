@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import { scoreData, setupQuestion } from './app';
 
 // IINSERT DATA IN RESULT.HTML
@@ -10,7 +11,7 @@ const setResult = type => {
 export const nextQuestion = currentNo => {
         if (currentNo === 10) {
                 let scoreLevel = '';
-                Object.keys(scoreData).forEach(type => {
+                Object.keys(scoreData).forEach((type, index) => {
                         if (type === 'CP') {
                                 scoreLevel += scoreData[type] + 1;
                                 console.log(scoreLevel, type);
